@@ -1,0 +1,2 @@
+# StriveOS
+Strive OS
