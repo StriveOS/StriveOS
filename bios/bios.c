@@ -38,3 +38,13 @@ int main(int argc, char **argv)
     rc = genstart(exposfunc, NULL)
     #else
     rc = 0; 
+    #endif
+    printf("return from called program is %d\n", rc);
+    printf("bios exiting\n");
+    return (0);
+}
+
+static void exposfunc(void *cbdata, int funccode, void *retptr, char *str) 
+{
+    
+}
