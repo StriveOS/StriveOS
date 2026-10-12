@@ -18,3 +18,6 @@ int main(int argc, char **argv)
     printf("bios starting\n");
     if (argc < 3)
     {
+        printf("Usage: bios os.exe disk.img\n");
+        return (EXIT_FAILURE);
+    }
