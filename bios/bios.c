@@ -46,5 +46,14 @@ int main(int argc, char **argv)
 
 static void exposfunc(void *cbdata, int funccode, void *retptr, char *str) 
 {
-    
+     if (funccode == OS_PRINTF) printf(str);
+    else if (funccode == OS_FOPEN)
+    {
+        printf("request received to open file %s\n", str);
+    }
+    else
+    {
+        printf("unknown request %d\n", funccode);
+    }
+    return;
 }
