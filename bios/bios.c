@@ -30,23 +30,28 @@ int main(int argc, char **argv)
     if (exeloadDoload(&entry_point, argv[1], &p) != 0)
     {
         printf("failed to load executable\n");
+        free(p);
         return (EXIT_FAILURE);
     }
     genstart = (void *)entry_point;
 
     #if 1
-    rc = genstart(exposfunc, NULL)
+    rc = genstart(exposfunc, NULL);
     #else
     rc = 0; 
     #endif
     printf("return from called program is %d\n", rc);
+    free(p);
     printf("bios exiting\n");
     return (0);
 }
 
 static void exposfunc(void *cbdata, int funccode, void *retptr, char *str) 
 {
-     if (funccode == OS_PRINTF) printf(str);
+    if (funccode == OS_PRINTF) 
+    {
+        printf("%s", str);
+    }
     else if (funccode == OS_FOPEN)
     {
         printf("request received to open file %s\n", str);
