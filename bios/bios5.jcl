@@ -1,3 +1,7 @@
 //BIOSGEN   JOB CLASS=C,REGION=0K
 //*
- 
+ //BIOSCMP   PROC BIOPREF='BIOS',MEMBER='',GCCPREF='GCC',
+// PDPPREF='PDPCLIB',
+// COS1='-Os -S -ansi',
+// COS2='-o dd:out -'
+//*
